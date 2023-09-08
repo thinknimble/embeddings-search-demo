@@ -1,6 +1,6 @@
 [![Built with Cookiecutter](https://img.shields.io/badge/built%20with-Cookiecutter-ff69b4.svg?logo=cookiecutter)](https://github.com/thinknimble/tn-spa-bootstrapper)
 
-# AI-Enabled Search Engine using LLM Embedding Vectors
+# AI-Enabled Search Engine using LLM Embeddings, Django, and pgvector
 
 A lot of people have asked us for ideas of how they can leverage Large Language Models (LLMs) for their business applications. A common example is to use the native language comprehension capabilities of LLMs to find matching content. This makes LLMs an excellent tool for search!
 
@@ -9,6 +9,13 @@ This repo demonstrates a prototype application that enables searching for job de
 ## Watch the Demo on Youtube
 
 [![Video: How We're Building AI Search Engines using LLM Embeddings](http://img.youtube.com/vi/ZCPUmC37HLU/0.jpg)](http://www.youtube.com/watch?v=ZCPUmC37HLU "How We're Building AI Search Engines using LLM Embeddings")
+
+## Links & Resources
+
+- https://www.sbert.net/ - Sentence Transformers package for Python
+- https://github.com/pgvector/pgvector - Vector database plugin for PostgreSQL
+- https://huggingface.co/spaces/mteb/leaderboard - The "Massive Text Embedding" leaderboard from HuggingFace. Look at this to find models you can use to generate embeddings.
+- https://www.djangoproject.com/
 
 ## Setup
 
