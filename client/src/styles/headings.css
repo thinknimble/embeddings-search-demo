@@ -1,0 +1,21 @@
+/* Headings & Text */
+
+/* h1 headers */
+.heading {
+  @apply text-3xl mb-6;
+}
+
+/* h2 headers */
+.subheading {
+  @apply text-2xl mb-5;
+}
+
+/* h3 headers */
+.title {
+  @apply text-xl mb-4;
+}
+
+/* h4 headers */
+.subtitle {
+  @apply text-lg mb-3;
+}

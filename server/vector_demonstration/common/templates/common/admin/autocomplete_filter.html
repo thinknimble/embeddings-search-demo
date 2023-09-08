@@ -1,0 +1,26 @@
+{% load i18n %}
+{% load static %}
+
+<div data-filter-title="{{ title }}">
+  {% block summary %}
+  <h3>
+    {% blocktranslate with filter_title=title %} By {{ filter_title }} {% endblocktranslate %}
+  </h3>
+  {% endblock %}
+  <ul>
+    <select
+      class="admin-autocomplete"
+      id="autocomplete-filter-{{ spec.parameter_name }}"
+      onchange="applyFilter(event, '{{ spec.parameter_name }}');"
+      name="{{ spec.parameter_name }}"
+      data-input-filter-prefix="autocomplete-filter"
+      {% for key, value in spec.autocomplete_configuration.items %}
+        {{ key }}="{{ value }}"
+      {% endfor %}
+    >
+      {% if spec.value %}
+        <option value={{ spec.value }} selected>{{ spec.value_title }}</option>
+      {% endif %}
+    </select>
+  </ul>
+</div>

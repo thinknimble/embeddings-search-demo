@@ -1,0 +1,18 @@
+{% extends "drf-yasg/swagger-ui.html" %}
+
+{% block extra_scripts %}
+    <script>
+        let authorization = {
+            Token: {
+                name: "Token",
+                schema: {
+                    type: "apiKey",
+                    "in": "header",
+                },
+                value: "Token {{ user.auth_token.key | safe }}"
+            }
+        }
+
+        localStorage.setItem(KEY_AUTH, JSON.stringify(Immutable.fromJS(authorization)))
+    </script>
+{% endblock %}

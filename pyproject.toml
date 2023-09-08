@@ -1,0 +1,8 @@
+[tool.black]
+line-length = 140
+target-version = ["py39"]
+exclude = "migrations"
+
+[tool.isort]
+profile="black"
+extend_skip = "migrations"

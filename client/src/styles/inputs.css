@@ -1,0 +1,13 @@
+/* Inputs */
+
+.input {
+  @apply mb-2 border rounded p-2 text-gray-700 leading-tight w-full;
+}
+
+.input--label {
+  @apply mb-2 font-bold;
+}
+
+.input--error {
+  @apply text-sm text-left text-error;
+}

@@ -1,0 +1,55 @@
+version: "3.4"
+
+volumes:
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
+
+services:
+  postgres:
+    restart: always
+    image: ankane/pgvector
+    ports:
+      - 56432:5432
+    env_file:
+      - ".env"
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data/
+      - local_postgres_data_backups:/backups
+
+  # server:
+  #   build:
+  #     context: .
+  #     dockerfile: ./compose/server/Dockerfile
+  #   restart: always
+  #   command: /start
+  #   volumes:
+  #     - .:/app
+  #   depends_on:
+  #     - postgres
+  #   env_file:
+  #     - ".env"
+  #   environment:
+  #     - DB_HOST=postgres
+  #   ports:
+  #     - "8000:8000"
+  #   user: ${DOCKER_UID}
+
+  # client:
+  #   container_name: client
+  #   build:
+  #     context: .
+  #     dockerfile: ./compose/client/Dockerfile
+  #   volumes:
+  #     - ".:/app"
+  #     # This line avoids copying local node_modules folder to the Docker container, and uses the ones installed during build
+  #     - "/app/client/node_modules"
+  #   ports:
+  #     - "8080:8080"
+  #     #- "49153:49153"
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
+      

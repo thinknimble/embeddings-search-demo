@@ -1,0 +1,40 @@
+name: Cypress Tests
+on: [deployment_status]
+
+jobs:
+  Chrome:
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: actions/checkout@v3
+      - name: Run against ${{ github.event.deployment_status.environment_url }}
+        uses: cypress-io/github-action@v4
+        with:
+          working-directory: client
+          browser: chrome
+        env:
+          NPM_CONFIG_PRODUCTION: false
+          CYPRESS_TEST_USER_EMAIL: "cypress@example.com"
+          CYPRESS_TEST_USER_PASS: ${{ secrets.CYPRESS_TEST_USER_PASS }}
+          CYPRESS_baseUrl: ${{ github.event.deployment_status.environment_url }}
+  Firefox:
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node16.14.2-slim-chrome103-ff102  # https://github.com/cypress-io/cypress-docker-images/tree/master/browsers
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run against ${{ github.event.deployment_status.environment_url }}
+        uses: cypress-io/github-action@v4
+        with:
+          working-directory: client
+          browser: firefox
+        env:
+          NPM_CONFIG_PRODUCTION: false
+          CYPRESS_TEST_USER_EMAIL: "cypress@example.com"
+          CYPRESS_TEST_USER_PASS: ${{ secrets.CYPRESS_TEST_USER_PASS }}
+          CYPRESS_baseUrl: ${{ github.event.deployment_status.environment_url }}

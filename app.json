@@ -1,0 +1,55 @@
+{
+  "name": "Vector Demonstration",
+  "env": {
+    "ALLOWED_HOSTS": {
+      "value": ".herokuapp.com"
+    },
+    "DEBUG": {
+      "value": "True"
+    },
+    "DISABLE_COLLECTSTATIC": {
+      "value": 0
+    },
+    "ENVIRONMENT": {
+      "value": "review"
+    },
+    "PROJECT_PATH": {
+      "value": "vector_demonstration"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "value": "false"
+    },
+    "DJANGO_SUPERUSER_PASSWORD": {
+      "value": "^+g)%kvmlbk@@3l3q=%319_d7o#&$7p-ej0lm!c8_%3jbfcsra"
+    },
+    "CYPRESS_TEST_USER_PASS": {
+      "value": "^+g)%kvmlbk@@3l3q=%319_d7o#&$7p-ej0lm!c8_%3jbfcsra"
+    },
+    "SECRET_KEY": {
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:standard-0",
+    "papertrail:Choklad"
+  ],
+  "environments": {
+    "review": {
+      "addons": [
+        "heroku-postgresql:mini",
+        "papertrail:Choklad"
+      ]
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "./scripts/db_setup.sh"
+  }
+}

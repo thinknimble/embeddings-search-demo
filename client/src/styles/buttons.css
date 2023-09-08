@@ -1,0 +1,25 @@
+/* Buttons */
+
+.btn {
+  @apply flex w-full cursor-pointer items-center justify-center rounded-md border px-3 py-2 text-sm font-semibold shadow-sm;
+}
+
+.btn--primary {
+  @apply btn;
+  @apply border-primary text-white hover:bg-primaryLight;
+}
+
+.btn--disabled {
+  @apply btn;
+  @apply cursor-not-allowed border-gray-200;
+}
+
+.btn--secondary {
+  @apply btn;
+  @apply hover:bg-gray-50;
+}
+
+.btn--accent {
+  @apply btn;
+  @apply bg-accent text-white;
+}

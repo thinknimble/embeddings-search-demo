@@ -1,0 +1,35 @@
+name: Unit Tests
+on: [push]
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpass
+          POSTGRES_DB: vector_demonstration_test_db
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+      - run: pipx install pipenv
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+          cache: 'pipenv'
+      - run: pipenv install --dev --deploy
+      - name: 'Create env file'
+        run: |
+          touch .env
+          cat .env.example > .env
+          cat .env
+      - run: mkdir -p client/dist/static
+      - run: pipenv run python server/manage.py collectstatic
+      - run: pipenv run pytest --mccabe --cov=vector_demonstration -vv server/vector_demonstration
+      - run: pipenv run coverage report --fail-under=20
