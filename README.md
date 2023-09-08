@@ -1,6 +1,6 @@
 [![Built with Cookiecutter](https://img.shields.io/badge/built%20with-Cookiecutter-ff69b4.svg?logo=cookiecutter)](https://github.com/thinknimble/tn-spa-bootstrapper)
 
-# Vector Demonstration
+# AI-Enabled Search Engine using LLM Embedding Vectors
 
 A lot of people have asked us for ideas of how they can leverage Large Language Models (LLMs) for their business applications. A common example is to use the native language comprehension capabilities of LLMs to find matching content. This makes LLMs an excellent tool for search!
 
