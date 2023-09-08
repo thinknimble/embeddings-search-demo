@@ -6,6 +6,8 @@ A lot of people have asked us for ideas of how they can leverage Large Language 
 
 This repo demonstrates a prototype application that enables searching for job descriptions using an unstructured, English-language description of a job seeker.
 
+## Watch the Demo on Youtube
+
 [![Video: How We're Building AI Search Engines using LLM Embeddings](http://img.youtube.com/vi/ZCPUmC37HLU/0.jpg)](http://www.youtube.com/watch?v=ZCPUmC37HLU "How We're Building AI Search Engines using LLM Embeddings")
 
 ## Setup
