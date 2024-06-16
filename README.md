@@ -54,3 +54,8 @@ See the [frontend README](client/README.md)
 1. `pipenv run black server`
 1. `pipenv run isort server --diff` (shows you what isort is expecting)
 1. `npm run cypress`
+
+### Infrastructure model
+![Infrastructure main model](.infragenie/infrastructure_main_model.svg)
+
+---
