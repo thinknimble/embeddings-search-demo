@@ -2,6 +2,10 @@
 
 # AI-Enabled Search Engine using LLM Embeddings, Django, and pgvector
 
+> **Status: frozen.** This repository is a snapshot from September 2023. It pairs with the video below, and the code here is the code in the video. Nobody maintains it, and it will get no more updates.
+>
+> Read it as a reference. Do not deploy it, and do not use it as the start of a new project. The dependencies stay pinned at their September 2023 versions, and many of them now have known vulnerabilities. `app.json` also sets `DEBUG=True` and holds a shared demo password. For a current Django and Vue starting point, use [tn-spa-bootstrapper](https://github.com/thinknimble/tn-spa-bootstrapper).
+
 A lot of people have asked us for ideas of how they can leverage Large Language Models (LLMs) for their business applications. A common example is to use the native language comprehension capabilities of LLMs to find matching content. This makes LLMs an excellent tool for search!
 
 This repo demonstrates a prototype application that enables searching for job descriptions using an unstructured, English-language description of a job seeker.
